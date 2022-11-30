@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">GameCompositionNumber</string>
+    <string name="rules">
+        Правила игры: перед вами будет три фигуры, две снизу и одна сверху, в двух из них будут числа. Необходимо, чтобы сумма чисел из двух нижних фигур была равна числу в верхней фигуре,для этого нужно вставить недостающее число.\n\nПример: в верхнем круге число 7, в одномиз нижних знак вопроса, а в другом число 4. Значит на месте вопросительного знака должнобыть число 3, потому что 3 + 4 = 7
+    </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="step_to_game">перейти к игре</string>
+    <string name="choose_level">Выберете уровень</string>
+    <string name="test">тестовый</string>
+    <string name="easy">легкий</string>
+    <string name="hard">сложный</string>
 </resources>
