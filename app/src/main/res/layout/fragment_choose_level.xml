@@ -9,56 +9,52 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="@string/choose_level"
-        android:textSize="30sp"
-        android:layout_gravity="center_horizontal"/>
+        android:textSize="30sp" />
 
     <Button
-        android:id="@+id/br_test_level"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/bt_test_level"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:textStyle="bold"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/test"
         android:textSize="18sp"
-        android:text="@string/test"/>
+        android:textStyle="bold" />
 
     <Button
-        android:id="@+id/br_easy_level"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/bt_easy_level"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:backgroundTint="@android:color/holo_green_light"
-        android:textStyle="bold"
+        android:text="@string/easy"
         android:textSize="18sp"
-        android:text="@string/easy"/>
+        android:textStyle="bold" />
 
     <Button
-        android:id="@+id/br_normal_level"
+        android:id="@+id/bt_normal_level"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_width="match_parent"
         android:backgroundTint="@android:color/holo_orange_light"
-        android:textStyle="bold"
+        android:text="нормальный"
         android:textSize="18sp"
-        android:layout_height="60dp"
-        android:text="нормальный"/>
+        android:textStyle="bold" />
 
     <Button
-        android:id="@+id/br_hard_level"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/bt_hard_level"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:textStyle="bold"
-        android:textSize="18sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:backgroundTint="@android:color/holo_red_light"
-        android:text="@string/hard"/>
-
-
-
-
+        android:text="@string/hard"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 
 </LinearLayout>
