@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.gamecompositionnumber.R
 import com.example.gamecompositionnumber.databinding.FragmentWelcomeBinding
@@ -26,17 +25,18 @@ class WelcomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initStepToGameButton()
+        goToChooseLevelFragment()
     }
 
-    private fun initStepToGameButton(){
+    private fun goToChooseLevelFragment(){
         binding.btStepToGame.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.general_fragment_container, ChooseLevelFragment.newInstance())
-                .addToBackStack(ChooseLevelFragment.FRAGMENT_NAME)
+                .replace(R.id.general_fragment_container, ChooseLevelFragment.newInstanse())
+                .addToBackStack("")
                 .commit()
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

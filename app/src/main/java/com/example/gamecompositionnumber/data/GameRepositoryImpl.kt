@@ -1,6 +1,6 @@
 package com.example.gamecompositionnumber.data
 
-import com.example.gamecompositionnumber.domain.entities.GameSetting
+import com.example.gamecompositionnumber.domain.entities.GameSettings
 import com.example.gamecompositionnumber.domain.entities.Level
 import com.example.gamecompositionnumber.domain.entities.Question
 import com.example.gamecompositionnumber.domain.repository.GameRepository
@@ -8,58 +8,59 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.random.Random
 
-object GameRepositoryImpl : GameRepository {
+object GameRepositoryImpl: GameRepository {
 
-    const val MIN_VALUE_GENERAL_NUMBER = 2
-    const val MIN_VALUE_VISIBLE_NUMBER = 1
+    private const val MIN_SUM_VALUE = 2
+    private const val MIN_ANSWER_VALUE = 1
 
-    override fun getGameQuestion(maxSumValue: Int, countOfOptions: Int): Question {
-        val generalNumber = Random.nextInt(MIN_VALUE_GENERAL_NUMBER, maxSumValue + 1)
-        val visibleNumber = Random.nextInt(MIN_VALUE_VISIBLE_NUMBER, generalNumber)
-        val option = HashSet<Int>()
-        val rightAnswer = generalNumber - visibleNumber
-        option.add(rightAnswer)
-
-        val from = max(rightAnswer - countOfOptions, MIN_VALUE_VISIBLE_NUMBER)
+    override fun generateQuestion(maxSumValue: Int, countOfOptions: Int): Question {
+        val sum = Random.nextInt(MIN_SUM_VALUE, maxSumValue + 1)
+        val visibleNumber = Random.nextInt(MIN_ANSWER_VALUE, sum)
+        val options = HashSet<Int>()
+        val rightAnswer = sum - visibleNumber
+        options.add(rightAnswer)
+        val from = max(rightAnswer - countOfOptions, MIN_ANSWER_VALUE)
         val to = min(maxSumValue, rightAnswer + countOfOptions)
-        while (option.size <= countOfOptions) {
-            option.add(Random.nextInt(from, to))
+        while (options.size < countOfOptions) {
+            options.add(Random.nextInt(from, to))
         }
-
-        return Question(generalNumber, visibleNumber, option.toList())
-
+        return Question(sum, visibleNumber, options.toList())
     }
 
-    override fun getGameSettings(level: Level): GameSetting {
+    override fun getGameSettings(level: Level): GameSettings {
         return when (level) {
-            Level.TEST ->
-                GameSetting(
-                10,
-                3,
-                50,
-                8
-            )
-            Level.EASY ->
-                GameSetting(
+            Level.TEST -> {
+                GameSettings(
+                    10,
+                    3,
+                    50,
+                    8
+                )
+            }
+            Level.EASY -> {
+                GameSettings(
                     10,
                     10,
                     70,
                     60
                 )
-            Level.NORMAL ->
-                GameSetting(
+            }
+            Level.NORMAL -> {
+                GameSettings(
                     20,
                     20,
                     80,
                     40
                 )
-            Level.HARD ->
-                GameSetting(
+            }
+            Level.HARD -> {
+                GameSettings(
                     30,
                     30,
                     90,
                     40
                 )
+            }
         }
     }
 }
